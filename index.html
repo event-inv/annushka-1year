@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Аннушке 1 год</title>
+  <meta name="description" content="Приглашаем вас разделить с нами этот особенный день — 5 ноября, 18:00">
+  <meta property="og:title" content="Нашему маленькому счастью 1 год">
+  <meta property="og:description" content="Приглашаем вас разделить с нами этот особенный день — 5 ноября, 18:00">
+  <meta property="og:image" content="img/hero-1.png">
+  <meta name="theme-color" content="#fff7e7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Макет 375px. 1rem = 10px при ширине 375, дальше всё масштабируется до 520px. */
+    :root {
+      --cream: #fff7e7;
+      --pink-bg: #ffe2ee;
+      --pink-card: #ffecf4;
+      --pink-btn: #ffbfd9;
+      --pink: #ff2a9c;
+      --pink-2: #ff3486;
+      --pink-dark: #d92183;
+    }
+    html { font-size: calc(min(100vw, 520px) / 37.5); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--pink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(100vw, 520px);
+      margin: 0 auto;
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .spacer { height: 5.6rem; }
+
+    .h1 {
+      font-size: 4.8rem;
+      line-height: .8;
+      letter-spacing: -.01em;
+      text-align: center;
+    }
+    .text {
+      font-size: 2.4rem;
+      line-height: 1;
+      letter-spacing: -.01em;
+      text-align: center;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      width: 34rem;
+      padding: 2.4rem 1rem;
+      border-radius: 4.8rem;
+      background: var(--pink-btn);
+      color: var(--pink-dark);
+      font-size: 2.4rem;
+      line-height: .8;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      transition: transform .15s, background .15s;
+    }
+    .btn:hover { background: #ffb0d0; }
+    .btn:active { transform: scale(.97); }
+    .btn img { width: 2.4rem; height: 2.4rem; }
+
+    /* Hero */
+    .top-edge { height: 6.4rem; width: 100%; }
+    .top-edge img { width: 100%; height: 100%; }
+    .hero { position: relative; height: 87.3rem; }
+    .hero-photo {
+      position: absolute;
+      left: 0; top: -1rem;
+      width: 100%; height: 87.1rem;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
+    .hero-photo::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(255,247,231,.8), rgba(255,247,231,0) 29.575%);
+    }
+    .hero-title {
+      position: relative;
+      width: 34.3rem;
+      margin: 0 auto;
+      color: var(--pink-2);
+      font-size: 4rem;
+      line-height: .8;
+      text-align: center;
+    }
+    .center {
+      position: absolute;
+      transform: translate(-50%, -50%) rotate(var(--r, 0deg));
+    }
+    .badge { width: 19.4rem; }
+    .badge-name {
+      color: var(--pink-2);
+      font-size: 4.6rem;
+      font-weight: 400;
+      line-height: .8;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    /* Дата */
+    .date { position: relative; height: 45rem; }
+    .date .h1 { width: 34.3rem; margin: 0 auto; }
+    .date-shape-1 { width: 21.2rem; }
+    .date-shape-2 { width: 14.2rem; }
+    .date-label {
+      font-size: 4.4rem;
+      font-weight: 400;
+      line-height: .8;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+    .date .btn { position: absolute; left: 1.9rem; top: 37.8rem; }
+
+    /* Розовый блок */
+    .story { position: relative; }
+    .story .edge { display: block; width: 100%; height: 5.6rem; }
+    .story .edge-bottom { transform: scaleY(-1); }
+    .story-body {
+      height: 45rem;
+      margin: -.1rem 0;
+      background: var(--pink-bg) url(img/pattern.svg) -0.4rem -3.4rem / 10.7rem 12.7rem repeat;
+      padding: 1.9rem 1.6rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.4rem;
+    }
+    .story-body .h1 { letter-spacing: -.01em; }
+
+    /* Программа */
+    .program {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4.8rem;
+      padding: 0 1.6rem;
+    }
+    .program-head { display: flex; flex-direction: column; align-items: center; gap: 2.4rem; }
+    .program-head .text { width: 30.1rem; }
+    .program-list { display: flex; flex-direction: column; gap: 2.4rem; list-style: none; }
+    .program-item { display: flex; align-items: center; gap: 2.4rem; width: 26rem; }
+    .program-item img { width: 6.4rem; height: 6.4rem; flex: none; }
+    .program-item div { display: flex; flex-direction: column; gap: .8rem; }
+    .program-time {
+      color: var(--pink-2);
+      font-size: 4.8rem;
+      font-weight: 300;
+      line-height: .8;
+      letter-spacing: -.02em;
+    }
+    .program-desc { font-size: 1.8rem; line-height: 1; letter-spacing: -.01em; }
+
+    /* Подарки */
+    .gifts {
+      background: var(--pink-card);
+      border-radius: 3.2rem;
+      padding: 4.8rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.6rem;
+    }
+    .gifts img { width: 100%; }
+
+    /* RSVP */
+    .rsvp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3.2rem;
+      padding: 0 1.6rem;
+    }
+    .rsvp-head { display: flex; flex-direction: column; align-items: center; gap: 1.6rem; }
+    .rsvp-head .h1 { width: 23.5rem; }
+
+    /* Таймер */
+    .final {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3.2rem;
+      padding: 0 1.6rem;
+    }
+    .timer { display: flex; justify-content: center; gap: .8rem; }
+    .timer-cell { width: 8rem; display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+    .timer-num {
+      width: 8rem; height: 8.03rem;
+      display: flex; align-items: center; justify-content: center;
+      background: url(img/count.svg) center / 100% 100% no-repeat;
+      font-size: 5.29rem;
+      line-height: .8;
+      letter-spacing: -.01em;
+      font-variant-numeric: lining-nums;
+      padding-top: .4rem;
+    }
+    .timer-label { font-size: 1.6rem; line-height: .8; letter-spacing: -.01em; }
+    .footer-photo { width: 37.7rem; max-width: none; margin: 0 -.1rem; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top-edge"><img src="img/hero-3.png" alt=""></div>
+
+    <section class="hero">
+      <div class="hero-photo"><img src="img/hero-1.png" alt="Аннушка"></div>
+      <h1 class="hero-title">Нашему маленькому счастью 1&nbsp;год</h1>
+      <img class="center badge" src="img/hero-2.png" alt="" style="left: 15.25rem; top: 15.46rem; --r: -3.48deg">
+      <p class="center badge-name" style="left: 15.19rem; top: 15.05rem; --r: -3.48deg">Аннушка</p>
+    </section>
+
+    <section class="date">
+      <h2 class="h1">Приглашаем вас разделить с нами этот особенный день</h2>
+      <img class="center date-shape-1" src="img/date-1.png" alt="" style="left: 15.45rem; top: 27.44rem; --r: -7.76deg">
+      <p class="center date-label" style="left: 15.39rem; top: 25.79rem; --r: -7.76deg">5 ноября</p>
+      <img class="center date-shape-2" src="img/date-2.png" alt="" style="left: 26.58rem; top: 30.06rem; --r: 3.83deg">
+      <p class="center date-label" style="left: 26.21rem; top: 29.21rem; --r: 3.83deg">18:00</p>
+      <a class="btn" href="#" target="_blank" rel="noopener">
+        <img src="img/pin.svg" alt="">
+        место проведения
+      </a>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="story">
+      <img class="edge" src="img/scallop.svg" alt="">
+      <div class="story-body">
+        <h2 class="h1">Нашей малышке Аннушке уже исполняется 1&nbsp;год</h2>
+        <p class="text">Кажется, совсем недавно мы впервые взяли тебя на&nbsp;руки, а&nbsp;оказывается прошёл целый год! 12&nbsp;счастливых месяцев, наполненных улыбками, маленькими открытиями, бессонными ночами и&nbsp;огромной любовью.<br><br>И&nbsp;нам очень хочется отметить этот прекрасный день в&nbsp;теплом кругу нашей большой семьи! 🩷</p>
+      </div>
+      <img class="edge edge-bottom" src="img/scallop.svg" alt="">
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="program">
+      <div class="program-head">
+        <h2 class="h1">Праздничная программа</h2>
+        <p class="text">Будет весело! Мы подготовили для вас уютный и&nbsp;теплый день с&nbsp;сюрпризами</p>
+      </div>
+      <ul class="program-list">
+        <li class="program-item"><img src="img/program-1.png" alt=""><div><span class="program-time">18:00</span><span class="program-desc">Сбор гостей, начало застолья</span></div></li>
+        <li class="program-item"><img src="img/program-2.png" alt=""><div><span class="program-time">19:00</span><span class="program-desc">Мини-игры с&nbsp;призами, поздравления</span></div></li>
+        <li class="program-item"><img src="img/program-3.png" alt=""><div><span class="program-time">20:00</span><span class="program-desc">Фотографирование, праздничный торт</span></div></li>
+        <li class="program-item"><img src="img/program-4.png" alt=""><div><span class="program-time">21:00</span><span class="program-desc">Завершение праздника</span></div></li>
+      </ul>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="gifts">
+      <h2 class="h1">Что подарить?</h2>
+      <img src="img/gift-1.png" alt="">
+      <p class="text">Если захотите порадовать нашу малышку подарочком, будем рады полезным вещицам — хорошим книжкам, развивающим игрушкам и&nbsp;другим маленьким помощникам в&nbsp;познании мира. 🌸<br><br>А&nbsp;если сомневаетесь с&nbsp;выбором, денежный подарочек в&nbsp;копилочку принцессы станет отличным решением 🩷</p>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="rsvp">
+      <img src="img/12.png" alt="Если у вас остались вопросы — напишите нам, мы всегда на связи!">
+      <div class="rsvp-head">
+        <h2 class="h1">Будем рады вас видеть</h2>
+        <p class="text">Пожалуйста, подтвердите своё присутствие до&nbsp;1&nbsp;ноября</p>
+      </div>
+      <a class="btn" href="#" target="_blank" rel="noopener">да, обязательно</a>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="final">
+      <h2 class="h1">До встречи на нашем празднике</h2>
+      <div class="timer" id="timer">
+        <div class="timer-cell"><span class="timer-num" data-k="d">0</span><span class="timer-label" data-l="d">дней</span></div>
+        <div class="timer-cell"><span class="timer-num" data-k="h">0</span><span class="timer-label" data-l="h">часов</span></div>
+        <div class="timer-cell"><span class="timer-num" data-k="m">0</span><span class="timer-label" data-l="m">минут</span></div>
+        <div class="timer-cell"><span class="timer-num" data-k="s">0</span><span class="timer-label" data-l="s">секунд</span></div>
+      </div>
+    </section>
+    <img class="footer-photo" src="img/footer-1.png" alt="">
+
+    <div class="spacer"></div>
+  </main>
+
+  <script>
+    // Праздник: 5 ноября 2026, 18:00 по Якутску (UTC+9)
+    const target = new Date('2026-11-05T18:00:00+09:00');
+    const forms = {
+      d: ['день', 'дня', 'дней'],
+      h: ['час', 'часа', 'часов'],
+      m: ['минута', 'минуты', 'минут'],
+      s: ['секунда', 'секунды', 'секунд'],
+    };
+    const plural = (n, [one, few, many]) => {
+      const a = n % 10, b = n % 100;
+      if (a === 1 && b !== 11) return one;
+      if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return few;
+      return many;
+    };
+    const timer = document.getElementById('timer');
+    function tick() {
+      const left = Math.max(0, Math.floor((target - Date.now()) / 1000));
+      const v = {
+        d: Math.floor(left / 86400),
+        h: Math.floor(left / 3600) % 24,
+        m: Math.floor(left / 60) % 60,
+        s: left % 60,
+      };
+      for (const k in v) {
+        timer.querySelector(`[data-k="${k}"]`).textContent = v[k];
+        timer.querySelector(`[data-l="${k}"]`).textContent = plural(v[k], forms[k]);
+      }
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>

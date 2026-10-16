@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="107" height="127" viewBox="0 0 107 127">
+  <defs><path id="s" d="M0 70.5C31.2041 70.5 56.5 38.9361 56.5 0C56.5 38.9361 81.7959 70.5 113 70.5C81.7959 70.5 56.5 102.064 56.5 141C56.5 102.064 31.2041 70.5 0 70.5Z" fill="#FFECF4"/></defs>
+  <use href="#s"/><use href="#s" x="-107"/><use href="#s" y="-127"/><use href="#s" x="-107" y="-127"/>
+</svg>
