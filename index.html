@@ -18,7 +18,7 @@
   <meta name="theme-color" content="#fff7e7">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Rubik:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Rubik:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/magnolia-script.woff" as="font" type="font/woff" crossorigin>
   <style>
     @font-face {
@@ -43,8 +43,8 @@
     body {
       background: var(--cream);
       color: var(--pink);
-      font-family: "Bad Script", cursive;
-      font-weight: 400;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 500;
       -webkit-font-smoothing: antialiased;
       -webkit-text-size-adjust: 100%;
     }
@@ -66,9 +66,10 @@
       line-height: 1.1;
       text-align: center;
     }
+    .text, .story-text, .btn, .timer-label { font-style: italic; }
     .text {
-      font-size: 2.2rem;
-      line-height: 1.3;
+      font-size: 2.4rem;
+      line-height: 1.15;
       letter-spacing: -.01em;
       text-align: center;
     }
@@ -164,8 +165,8 @@
     .story-text {
       font-family: inherit;
       font-weight: 400;
-      font-size: 2.2rem;
-      line-height: 1.4;
+      font-size: 2.4rem;
+      line-height: 1.2;
       text-align: center;
     }
 
@@ -180,16 +181,6 @@
       gap: 1.6rem;
     }
     .gifts img { width: 100%; }
-
-    /* RSVP */
-    .rsvp {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3.2rem;
-      padding: 0 1.6rem;
-    }
-    .rsvp-head { display: flex; flex-direction: column; align-items: center; gap: 1.6rem; }
 
     /* Таймер */
     .final {
@@ -212,7 +203,7 @@
       font-variant-numeric: lining-nums;
       padding-top: .4rem;
     }
-    .timer-label { font-size: 1.5rem; line-height: 1; letter-spacing: -.01em; }
+    .timer-label { font-size: 1.6rem; line-height: 1; letter-spacing: -.01em; }
     .footer-photo { width: 37.7rem; max-width: none; margin: 0 -.1rem; }
     .signature { width: 34.3rem; margin: 0 auto; font-size: 3.6rem; }
 
@@ -280,16 +271,6 @@
       <h2 class="h1">Что подарить?</h2>
       <img src="img/gift-1.png" alt="">
       <p class="text">Если захотите порадовать нашу малышку подарочком, будем рады полезным вещицам — хорошим книжкам, развивающим игрушкам и&nbsp;другим маленьким помощникам в&nbsp;познании мира. 🌸<br><br>А&nbsp;если сомневаетесь с&nbsp;выбором, денежный подарочек в&nbsp;копилочку принцессы станет отличным решением 🩷</p>
-    </section>
-
-    <div class="spacer"></div>
-
-    <section class="rsvp">
-      <img src="img/12.png" alt="Если у вас остались вопросы — напишите нам, мы всегда на связи!">
-      <div class="rsvp-head">
-        <h2 class="h1">Будем рады вас видеть</h2>
-        <p class="text">Пожалуйста, подтвердите своё присутствие до&nbsp;1&nbsp;ноября</p>
-      </div>
     </section>
 
     <div class="spacer"></div>
