@@ -214,6 +214,29 @@
     .timer-label { font-size: 1.6rem; line-height: .8; letter-spacing: -.01em; }
     .footer-photo { width: 37.7rem; max-width: none; margin: 0 -.1rem; }
     .signature { width: 34.3rem; margin: 0 auto; font-size: 3.6rem; }
+
+    /* Музыка */
+    .music {
+      position: fixed;
+      right: calc(max(0px, (100vw - 520px) / 2) + 1.6rem);
+      bottom: calc(1.6rem + env(safe-area-inset-bottom));
+      z-index: 10;
+      width: 4.8rem; height: 4.8rem;
+      border: 0;
+      border-radius: 50%;
+      background: var(--pink-btn);
+      color: var(--pink-dark);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 .4rem 1.2rem rgba(217, 33, 131, .2);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .music svg { width: 2.4rem; height: 2.4rem; }
+    .music .off { display: none; }
+    .music.paused .on { display: none; }
+    .music.paused .off { display: block; }
+    .music:not(.paused) .on { animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(1.12); } }
   </style>
 </head>
 <body>
@@ -285,7 +308,41 @@
     <div class="spacer"></div>
   </main>
 
+  <audio id="music-audio" src="audio/music.m4a" loop preload="auto"></audio>
+  <button class="music paused" id="music-btn" type="button" aria-label="Включить музыку">
+    <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m23 9-6 6"/><path d="m17 9 6 6"/></svg>
+  </button>
+
   <script>
+    // Музыка: браузеры не дают играть звук без действия гостя,
+    // поэтому включаем с первого касания страницы и даём кнопку.
+    const audio = document.getElementById('music-audio');
+    const btn = document.getElementById('music-btn');
+    let userPaused = false;
+    const sync = () => {
+      btn.classList.toggle('paused', audio.paused);
+      btn.setAttribute('aria-label', audio.paused ? 'Включить музыку' : 'Выключить музыку');
+    };
+    audio.addEventListener('play', sync);
+    audio.addEventListener('pause', sync);
+    const play = () => audio.play().catch(() => {});
+    const unlock = (e) => {
+      if (btn.contains(e.target)) return;
+      if (!userPaused) play();
+      ['pointerdown', 'keydown'].forEach((t) => removeEventListener(t, unlock));
+    };
+    ['pointerdown', 'keydown'].forEach((t) => addEventListener(t, unlock));
+    btn.addEventListener('click', () => {
+      if (audio.paused) { userPaused = false; play(); }
+      else { userPaused = true; audio.pause(); }
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) audio.pause();
+      else if (!userPaused && audio.currentTime > 0) play();
+    });
+    play();
+
     // Праздник: 5 ноября 2026, 17:00 по Якутску (UTC+9)
     const target = new Date('2026-11-05T17:00:00+09:00');
     const forms = {
